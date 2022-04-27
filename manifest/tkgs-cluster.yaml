@@ -14,7 +14,7 @@ spec:
           name: v1.21.2---vmware.1-tkg.1.ee25d55
     nodePools:
     - name: default-nodepool
-      replicas: 4
+      replicas: 1
       vmClass: best-effort-medium
       storageClass: tanzu
       tkr:
