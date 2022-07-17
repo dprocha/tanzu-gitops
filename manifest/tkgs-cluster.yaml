@@ -6,7 +6,7 @@ metadata:
 spec:
   topology:
     controlPlane:
-      replicas: 3
+      replicas: 1
       vmClass: best-effort-medium
       storageClass: vc01cl01-t0compute
       tkr:
@@ -14,7 +14,7 @@ spec:
           name: v1.21.2---vmware.1-tkg.1.ee25d55
     nodePools:
     - name: default-nodepool
-      replicas: 3
+      replicas: 1
       vmClass: best-effort-medium
       storageClass: vc01cl01-t0compute
       tkr:
