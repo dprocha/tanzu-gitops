@@ -2,13 +2,13 @@ apiVersion: run.tanzu.vmware.com/v1alpha2
 kind: TanzuKubernetesCluster
 metadata:
   name: dev-cluster
-  namespace: shared
+  namespace: development
 spec:
   topology:
     controlPlane:
       replicas: 3
       vmClass: best-effort-medium
-      storageClass: tanzu
+      storageClass: vc01cl01-t0compute
       tkr:
         reference:
           name: v1.21.2---vmware.1-tkg.1.ee25d55
@@ -16,13 +16,13 @@ spec:
     - name: default-nodepool
       replicas: 3
       vmClass: best-effort-medium
-      storageClass: tanzu
+      storageClass: vc01cl01-t0compute
       tkr:
         reference:
           name: v1.21.2---vmware.1-tkg.1.ee25d55
   settings:
     storage:
-      defaultClass: tanzu
+      defaultClass: vc01cl01-t0compute
     network:
       trust:
         additionalTrustedCAs:
