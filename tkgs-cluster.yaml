@@ -1,12 +1,12 @@
 apiVersion: run.tanzu.vmware.com/v1alpha2
 kind: TanzuKubernetesCluster
 metadata:
-  name: x-cluster
-  namespace: xxx
+  name: dev-cluster
+  namespace: dev
 spec:
   topology:
     controlPlane:
-      replicas: 1
+      replicas: 3
       vmClass: best-effort-small
       storageClass: vc01cl01-t0compute
       tkr:
@@ -14,7 +14,7 @@ spec:
           name: v1.22.9---vmware.1-tkg.1.cc71bc8
     nodePools:
     - name: default-nodepool
-      replicas: 1
+      replicas: 3
       vmClass: best-effort-small
       storageClass: vc01cl01-t0compute
       tkr:
@@ -23,37 +23,3 @@ spec:
   settings:
     storage:
       defaultClass: vc01cl01-t0compute
-    network:
-      trust:
-        additionalTrustedCAs:
-        - name: mkcert
-          data: |-
-            LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVsVENDQXYyZ0F3SUJBZ0lRSzEvUmdoNlBZ
-            L3ExTVV5NFJ3ME9jekFOQmdrcWhraUc5dzBCQVFzRkFEQmoKTVI0d0hBWURWUVFLRXhWdGEyTmxj
-            blFnWkdWMlpXeHZjRzFsYm5RZ1EwRXhIREFhQmdOVkJBc01FM0p2YjNSQQpjR2h2ZEc5dUxXMWhZ
-            MmhwYm1VeEl6QWhCZ05WQkFNTUdtMXJZMlZ5ZENCeWIyOTBRSEJvYjNSdmJpMXRZV05vCmFXNWxN
-            QjRYRFRJeU1EZ3lNekl3TURReE5Gb1hEVE15TURneU16SXdNRFF4TkZvd1l6RWVNQndHQTFVRUNo
-            TVYKYld0alpYSjBJR1JsZG1Wc2IzQnRaVzUwSUVOQk1Sd3dHZ1lEVlFRTERCTnliMjkwUUhCb2Iz
-            UnZiaTF0WVdObwphVzVsTVNNd0lRWURWUVFEREJwdGEyTmxjblFnY205dmRFQndhRzkwYjI0dGJX
-            RmphR2x1WlRDQ0FhSXdEUVlKCktvWklodmNOQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQU9jOUsy
-            cWs4YjlwL2R3ZDV3Qmo5SS8zN0xHdzFscjkKbWx1K3ZrZDN0N3dBb1R5Z0FDeFg2TmIzL1VlNGxi
-            OHRyYUoxZU0rcmw4SUdNc0hPNW9kSUlQbzZZUkU3S2NwTApGSklOWG1vSHBsQkFjZHdoQytwOE1F
-            Z3IxYzJMN2tuZEk1VGtkQ2o1aDVTbkhNL3ZDTUtYT3FXUXdaMHBqR0hmCmxHb1VYLzZRSi92cVFE
-            dXd4TW5vTHY5eG4vVVpUNzVLUnFGZHhzWFo5cXZCc2ZqeUtaOC9XNFQ1N2NET3IrbkcKcS9jL3VU
-            RHNnaFlDVnI4WXhndzgvWEdhcUZRcHN4cUYxU1JzNGk0d2t5anlwendhL29YL0tHa3FUVEpHdUNU
-            cAp4SmExUVo1VXZKUzd4SjQvWXQ4U1JYNGc2bTREc1IyQktMelJtT1B0eTBDY2xTUWhxejV2d2Rz
-            Q3E5ZFFjUDJlCng3SHAzcjF2TEE2cWIwaG0zckJpZEZTOGFhUWpnbnZSRXhGK0lON2czMHN0L29i
-            bkNoYllRTE5LWDMxTkV5djgKNS9rcE9hcUwzNkZsWU9HR0V6WVlIN0dWZzdnS1JyWGNOZnJuMGpH
-            eXhPbXpSTG14YVhMRlhzUUpmbGdJaWg0bwppUUtHY3dBakdZVnc3NEdFMlk5dVV0bHp5U2hYdkJR
-            Z0xRSURBUUFCbzBVd1F6QU9CZ05WSFE4QkFmOEVCQU1DCkFnUXdFZ1lEVlIwVEFRSC9CQWd3QmdF
-            Qi93SUJBREFkQmdOVkhRNEVGZ1FVRWZaNGFaRmg3QUdoN2svRURLWG4KemxmN3ZzZ3dEUVlKS29a
-            SWh2Y05BUUVMQlFBRGdnR0JBTlBSZkFQT3Q0S04wb1Btb1psRnhKNGVmSjlzRDdxLwp0YVdYT2or
-            bXg2SThEUkN5eXNWdjBxTXhGUm92N1A2L0ZKR2Fvc29FNmR6OHZaaHY1a2FYTUJCVTFOVHRZdUYy
-            CldtZFJpZGxiTlVuaDRRMjVCMmJqR2MvT2xRaVlDRjJJemhubkhDMGZ1WlZob2dXSFlwUnBhOCty
-            MnEyNHVmMFgKTC8wQmdxYnljOTMxaFo1UVpBSEFHNUgzM21zblZXWFFINjJMSWg0cW9NNzNQL2xv
-            UlVFbnNTU0V5Mlp6MnhkTwpzaFFYWmFmbmkweXE4MkErOExibUZQSzBUUE9pNVdLOUM1TTR5eWlM
-            d0xNRnl4SDlyZjZCWGw5WFJTcUtma2J2Cmlld3VMTnI0WWpRclJrR1RjNm1qR2prZXhiWDlyZ21h
-            cEFFTGVIOUtqNTBEQjZHVlIycDRoVjhnZ1RXdmtFaEMKMkxXc2I3bDJ3bG1Ba1gzQXI4VkN3aXE5
-            YTdKbFpUTlozZWN5NDJ5YmNOQkF4N0dxaDFObXdlQVE0bm1EeWViSQpUdy9vVnlEdWtDUEZ0aXJ0
-            UDVTZ09ucFZ5ZTJyTEtncksxdXk5Y3FUVnN6cmt5d3RLUHdWMVdVWkhxM1c0akxnClcweHN1eFdF
-            TlZLSzFIeUIwNWk5MzlSVDRMWXNLMUNLRHc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
