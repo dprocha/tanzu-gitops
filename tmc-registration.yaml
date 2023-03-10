@@ -5,4 +5,4 @@ metadata:
   namespace: svc-tmc-c8
 spec:
   operation: INSTALL
-  registrationLink:
+  registrationLink: 
